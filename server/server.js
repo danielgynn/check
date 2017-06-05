@@ -5,6 +5,8 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var path = require('path');
 
+var Todo = require('./models/todo');
+
 var app = express();
 var router = express.Router();
 
@@ -27,6 +29,31 @@ app.use(function(req, res, next) {
 router.get('/', function(req, res) {
   res.json({ message: 'API is running!'});
 });
+
+router.route('/todos')
+  .get(function(req, res) {
+    Todo.find(function(err, todos) {
+      if (err) {
+        res.send(err);
+      } else {
+        res.json(todos);
+      }
+    });
+  })
+
+  .post(function(req, res) {
+    var todo = new Todo();
+    todo.text = req.body.text;
+    todo.complete = false;
+
+    todo.save(function(err) {
+      if (err) {
+        res.send(err);
+      } else {
+        res.json({ message: 'Todo successfully added!'});
+      }
+    });
+  });
 
 app.use('/api', router);
 
