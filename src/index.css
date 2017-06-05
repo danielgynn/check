@@ -11,6 +11,28 @@ body {
   width: 80vw;
   margin: 0 auto; }
 
+h2 {
+  margin: 1rem auto 0;
+  text-transform: uppercase; }
+
+input[type=text] {
+  line-height: 60px;
+  font-size: 2rem;
+  display: block;
+  margin: 0 auto 2rem;
+  color: #f3f4f4;
+  background-color: #222;
+  width: 100%;
+  outline: none;
+  border-radius: 0;
+  border: none;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f3f4f4;
+  -webkit-appearance: none; }
+
+::-webkit-input-placeholder {
+  font-size: .9rem; }
+
 .check-container {
   display: flex;
   align-items: center;
@@ -45,7 +67,8 @@ label {
     opacity: .7; }
 
 input[type=checkbox]:checked + label {
-  background: #f3f4f4; }
+  background: #f3f4f4;
+  content: '<2705'; }
 
 label:before {
   content: ''; }
