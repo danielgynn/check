@@ -17,8 +17,6 @@ h2 {
   text-transform: uppercase; }
 
 input[type=text] {
-  line-height: 60px;
-  font-size: 1.5rem;
   display: block;
   margin: 0 auto;
   color: #f3f4f4;
@@ -27,9 +25,14 @@ input[type=text] {
   outline: none;
   border-radius: 0;
   border: none;
+  -webkit-appearance: none;
+  border-bottom: 1px solid #f3f4f4; }
+
+.add-todo-input {
+  line-height: 60px;
+  font-size: 1.5rem;
   margin: .5rem 0;
-  border-bottom: 3px solid #f3f4f4;
-  -webkit-appearance: none; }
+  border-bottom: 3px solid #f3f4f4; }
 
 ::-webkit-input-placeholder {
   font-size: .9rem; }
@@ -46,11 +49,16 @@ input[type=text] {
     flex-direction: column;
     justify-content: center; }
   .check-container .check-meta {
+    display: flex;
+    align-items: center;
     text-transform: uppercase;
     opacity: .7;
     font-size: .85rem; }
-    .check-container .check-meta span {
+    .check-container .check-meta span, .check-container .check-meta input, .check-container .check-meta form {
+      width: 100px;
       margin-right: .5rem; }
+    .check-container .check-meta span {
+      text-align: center; }
 
 input[type=checkbox] {
   display: none; }
@@ -64,14 +72,14 @@ label {
   border-radius: 100px;
   position: relative;
   cursor: pointer;
-  transition: .4s ease-in-out; }
+  transition: .1s ease-in-out; }
   label:hover {
-    background: #f3f4f4;
     opacity: .7; }
 
 input[type=checkbox]:checked + label {
-  background: #f3f4f4;
-  content: '<2705'; }
+  background: #f3f4f4; }
+  input[type=checkbox]:checked + label:hover {
+    background-color: #f3f4f4; }
 
 label:before {
   content: ''; }

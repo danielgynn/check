@@ -4,34 +4,45 @@ class Todo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      complete: this.props.complete,
+      complete: false,
       text: this.props.text,
       tag: this.props.tag,
       deadline: this.props.deadline,
       notes: this.props.notes
     };
 
-    this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.handleCheckClick = this.handleCheckClick.bind(this);
   }
 
-  onChangeHandler(e) {
+  handleCheckClick(e) {
     e.preventDefault();
+    let id = this.props.uniqueID;
+    let complete = (this.state.complete) ? false : true;
+    let todo = { complete: complete };
+    this.props.onCheckClick(id, todo);
+    this.setState({
+      complete: complete
+    })
   }
 
   render() {
     return (
       <div>
         <div className='check-container'>
-          <form action="#">
-            <input type='checkbox' id={ this.state.text } onChange={ this.onChangeHandler } defaultChecked={ this.state.complete } />
+          <form onClick={ this.handleCheckClick }>
+            <input type='checkbox' id={ this.state.text } onChange={ this.handleCheckClick } checked={ this.props.complete } />
             <label htmlFor={ this.state.text } />
           </form>
           <div className='check-details'>
             <p>{ this.state.text }</p>
             <div className='check-meta'>
-              { (this.state.tag) ? (<span>{this.props.tag}</span>) : (<span>Add Tag</span>) }
-              { (this.state.deadline) ? (<span>{this.props.deadline}</span>) : (<span>Add Deadline</span>) }
-              { (this.state.notes) ? (<span>{this.props.notes}</span>) : (<span>Add Notes</span>) }
+              { (this.state.tag) ? (<span>{ this.props.tag }</span>) : (
+                <form onSubmit={ this.handleTodoUpdate }>
+                  <input type='text' placeholder='Add tag' />
+                </form>
+              ) }
+              { (this.state.deadline) ? (<span>{ this.props.deadline }</span>) : (<span>Add Deadline</span>) }
+              { (this.state.notes) ? (<span>{ this.props.notes }</span>) : (<span>Add Notes</span>) }
             </div>
           </div>
         </div>

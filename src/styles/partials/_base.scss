@@ -19,8 +19,6 @@ h2 {
 }
 
 input[type=text] {
-  line-height: 60px;
-  font-size: 1.5rem;
   display: block;
   margin: 0 auto;
   color: $color-neue;
@@ -29,9 +27,15 @@ input[type=text] {
   outline: none;
   border-radius: 0;
   border: none;
+  -webkit-appearance: none;
+  border-bottom: 1px solid $color-neue;
+}
+
+.add-todo-input {
+  line-height: 60px;
+  font-size: 1.5rem;
   margin: .5rem 0;
   border-bottom: 3px solid $color-neue;
-  -webkit-appearance: none;
 }
 
 ::-webkit-input-placeholder {

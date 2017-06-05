@@ -4,5 +4,10 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
-ReactDOM.render(<App url='http://localhost:3001/api/todos' />, document.getElementById('root'));
+ReactDOM.render(
+  <App
+    url='http://localhost:3001/api/todos'
+    pollInterval={2000}
+  />
+  , document.getElementById('root'));
 registerServiceWorker();
