@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import Todo from './Todo';
-import DATA from '../test-data';
 
 class TodoList extends Component {
   render() {
-    let todos = DATA.map(todo => {
+    let todos = this.props.data.map(todo => {
        return (
          <Todo
            key={todo.id}
