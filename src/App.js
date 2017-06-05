@@ -11,12 +11,26 @@ class App extends Component {
     };
 
     this.loadTodosFromServer = this.loadTodosFromServer.bind(this);
+    this.handleTodoSubmit = this.handleTodoSubmit.bind(this);
   }
 
   loadTodosFromServer() {
     axios.get(this.props.url)
       .then(res => {
         this.setState({ todoData: res.data });
+      })
+  }
+
+  handleTodoSubmit(todo) {
+    let todos = this.state.todoData;
+    todo.id = Date.now();
+    let newTodos = todos.concat([todo]);
+    this.setState({ todoData: newTodos });
+
+    axios.post(this.props.url, todo)
+      .catch(err => {
+        console.error(err);
+        this.setState({ todoData: todos });
       })
   }
 
@@ -29,7 +43,7 @@ class App extends Component {
     return (
       <div className="wrapper">
         <h2>Check App</h2>
-        <AddTodo />
+        <AddTodo onTodoSubmit={ this.handleTodoSubmit } />
         <TodoList data={ this.state.todoData } />
       </div>
     );

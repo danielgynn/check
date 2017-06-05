@@ -4,26 +4,32 @@ class AddTodo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-     value: ''
+     text: ''
    };
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleUpdate(event) {
-    this.setState({value: event.target.value});
-    console.log(event.target.value);
+  handleUpdate(e) {
+    this.setState({text: e.target.value});
   }
 
-  handleSubmit(event) {
-    console.log('TODO added: ' + this.state.value);
-    event.preventDefault();
+  handleSubmit(e) {
+    e.preventDefault();
+    let text = this.state.text.trim();
+
+    if (!text) {
+      return;
+    } else {
+      this.props.onTodoSubmit({ text: text });
+      this.setState({ text: '' });
+    }
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type='text' value={this.state.value} placeholder='Add a new todo...' onChange={this.handleUpdate} />
+        <input type='text' value={this.state.text} placeholder='Add a new todo...' onChange={this.handleUpdate} />
       </form>
     );
   }
