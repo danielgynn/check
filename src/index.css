@@ -12,7 +12,8 @@ body {
   margin: 0 auto; }
 
 h2 {
-  margin: 1rem auto 0;
+  font-size: 2.5rem;
+  margin: 1rem auto;
   text-transform: uppercase; }
 
 input[type=text] {
@@ -48,6 +49,8 @@ input[type=text] {
     text-transform: uppercase;
     opacity: .7;
     font-size: .85rem; }
+    .check-container .check-meta span {
+      margin-right: .5rem; }
 
 input[type=checkbox] {
   display: none; }

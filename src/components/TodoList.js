@@ -11,6 +11,7 @@ class TodoList extends Component {
            complete={todo.complete}
            tag={todo.tag}
            date={todo.date}
+           notes={todo.notes}
           />
        )
      })

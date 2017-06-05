@@ -5,7 +5,10 @@ class Todo extends Component {
     super(props);
     this.state = {
       complete: this.props.complete,
-      text: this.props.text
+      text: this.props.text,
+      tag: this.props.tag,
+      deadline: this.props.deadline,
+      notes: this.props.notes
     };
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -26,7 +29,9 @@ class Todo extends Component {
           <div className='check-details'>
             <p>{ this.state.text }</p>
             <div className='check-meta'>
-              <span>{this.props.tag}</span> • <span>{this.props.date}</span>
+              { (this.state.tag) ? (<span>{this.props.tag}</span>) : (<span>Add Tag</span>) }
+              { (this.state.deadline) ? (<span>{this.props.deadline}</span>) : (<span>Add Deadline</span>) }
+              { (this.state.notes) ? (<span>{this.props.notes}</span>) : (<span>Add Notes</span>) }
             </div>
           </div>
         </div>

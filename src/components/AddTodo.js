@@ -29,7 +29,11 @@ class AddTodo extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type='text' value={this.state.text} placeholder='Add a new todo...' onChange={this.handleUpdate} />
+        <input
+          type='text'
+          value={this.state.text} placeholder='Add a new todo...'
+          onChange={this.handleUpdate}
+        />
       </form>
     );
   }
