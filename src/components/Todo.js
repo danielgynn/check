@@ -26,7 +26,7 @@ class Todo extends Component {
           <div className='check-details'>
             <p>{ this.state.text }</p>
             <div className='check-meta'>
-              <span>{this.props.tag}</span> | <span>{this.props.date}</span>
+              <span>{this.props.tag}</span> • <span>{this.props.date}</span>
             </div>
           </div>
         </div>
