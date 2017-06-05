@@ -19,17 +19,17 @@ h2 {
 
 input[type=text] {
   line-height: 60px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   display: block;
-  margin: 0 auto 2rem;
+  margin: 0 auto;
   color: $color-neue;
   background-color: $color-night;
   width: 100%;
   outline: none;
   border-radius: 0;
   border: none;
-  padding-bottom: 10px;
-  border-bottom: 1px solid $color-neue;
+  margin: .5rem 0;
+  border-bottom: 3px solid $color-neue;
   -webkit-appearance: none;
 }
 
