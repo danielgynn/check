@@ -32,7 +32,8 @@ class AddTodo extends Component {
         <input
           className='add-todo-input'
           type='text'
-          value={this.state.text} placeholder='Add a new todo...'
+          value={this.state.text}
+          placeholder='Add a new todo...'
           onChange={this.handleUpdate}
         />
       </form>

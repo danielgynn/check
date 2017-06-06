@@ -59,6 +59,10 @@ button {
   overflow: hidden;
   overflow-y: scroll; }
 
+.notes {
+  font-size: .85rem;
+  margin: 0 58px; }
+
 .margin-y {
   margin: 1rem auto; }
 

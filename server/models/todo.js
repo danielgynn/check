@@ -8,7 +8,7 @@ var TodoSchema = new Schema({
   complete: Boolean,
   deadline: Date,
   tag: String,
-  Notes: String
+  notes: String
 });
 
 module.exports = mongoose.model('Todo', TodoSchema);

@@ -14,6 +14,7 @@ class App extends Component {
     this.handleTodoSubmit = this.handleTodoSubmit.bind(this);
     this.handleCheckClick = this.handleCheckClick.bind(this);
     this.handleTodoDelete = this.handleTodoDelete.bind(this);
+    this.handleNotesSubmit = this.handleNotesSubmit.bind(this);
   }
 
   loadTodosFromServer() {
@@ -53,6 +54,13 @@ class App extends Component {
       })
   }
 
+  handleNotesSubmit(id, todo) {
+    axios.put(`${this.props.url}Notes/${id}`, todo)
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
   componentDidMount() {
     this.loadTodosFromServer();
     setInterval(this.loadTodosFromServer, this.props.pollInterval);
@@ -66,6 +74,7 @@ class App extends Component {
         <TodoList
           onCheckClick={ this.handleCheckClick }
           onTodoDelete={ this.handleTodoDelete }
+          onNotesSubmit={ this.handleNotesSubmit }
           data={ this.state.todoData }
         />
       </div>

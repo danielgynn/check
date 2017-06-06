@@ -66,6 +66,25 @@ router.route('/todos/:todo_id')
     })
   });
 
+router.route('/todosNotes/:todo_id')
+  .put(function(req, res) {
+    Todo.findById(req.params.todo_id, function(err, todo) {
+      if (err) {
+        res.send(err);
+      } else {
+        todo.notes = req.body.notes;
+
+        todo.save(function(err) {
+          if (err) {
+            res.send(err);
+          } else {
+            res.json({ message: 'Todo has been updated!' });
+          }
+        });
+      }
+    });
+  });
+
 router.route('/todosCheck/:todo_id')
   .put(function(req, res) {
     Todo.findById(req.params.todo_id, function(err, todo) {

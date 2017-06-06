@@ -34,6 +34,7 @@ class TodoList extends Component {
            notes={todo.notes}
            onCheckClick={ this.props.onCheckClick }
            onTodoDelete={ this.props.onTodoDelete }
+           onNotesSubmit={ this.props.onNotesSubmit }
           />
        )
      })
