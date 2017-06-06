@@ -37,6 +37,18 @@ input[type=text] {
 ::-webkit-input-placeholder {
   font-size: .9rem; }
 
+button {
+  cursor: pointer;
+  background-color: #24828f;
+  border-radius: 3px;
+  color: #f3f4f4;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  height: 30px;
+  border: none;
+  padding: .25rem .5rem;
+  margin-right: .5rem; }
+
 .check-container {
   display: flex;
   align-items: center;
@@ -62,22 +74,23 @@ input[type=checkbox] {
   display: none; }
 
 label {
+  cursor: pointer;
   width: 40px;
   height: 40px;
   box-sizing: border-box;
-  border: 3px solid;
+  border: 3px solid #96dbe4;
   float: left;
   border-radius: 100px;
   position: relative;
-  cursor: pointer;
   transition: .1s ease-in-out; }
   label:hover {
+    border-color: #24828f;
     opacity: .7; }
 
 input[type=checkbox]:checked + label {
-  background: #f3f4f4; }
+  background: #24828f; }
   input[type=checkbox]:checked + label:hover {
-    background-color: #f3f4f4; }
+    background-color: #96dbe4; }
 
 label:before {
   content: ''; }

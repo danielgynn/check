@@ -18,6 +18,7 @@ class TodoList extends Component {
       .filter(todo => {
         return (this.state.filter === 'COMPLETE') ? todo.complete : ((this.state.filter === 'INCOMPLETE') ? !todo.complete : todo);
       })
+      .sort(todo => { return todo.complete })
       .map(todo => {
        return (
          <Todo

@@ -4,7 +4,7 @@ body {
   font-size: 18px;
   font-family: $font-roboto;
   background-color: $color-night;
-  color: $color-neue;
+  color: $color-haus;
 }
 
 .wrapper {
@@ -21,23 +21,36 @@ h2 {
 input[type=text] {
   display: block;
   margin: 0 auto;
-  color: $color-neue;
+  color: $color-haus;
   background-color: $color-night;
   width: 100%;
   outline: none;
   border-radius: 0;
   border: none;
   -webkit-appearance: none;
-  border-bottom: 1px solid $color-neue;
+  border-bottom: 1px solid $color-haus;
 }
 
 .add-todo-input {
   line-height: 60px;
   font-size: 1.5rem;
   margin: .5rem 0;
-  border-bottom: 3px solid $color-neue;
+  border-bottom: 3px solid $color-haus;
 }
 
 ::-webkit-input-placeholder {
   font-size: .9rem;
+}
+
+button {
+  cursor: pointer;
+  background-color: $color-sur-dark;
+  border-radius: 3px;
+  color: $color-haus;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  height: 30px;
+  border: none;
+  padding: .25rem .5rem;
+  margin-right: .5rem;
 }

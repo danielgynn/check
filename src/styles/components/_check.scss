@@ -37,27 +37,27 @@ input[type=checkbox] {
 }
 
 label {
+  cursor: pointer;
   width: 40px;
   height: 40px;
   box-sizing: border-box;
-  border: 3px solid;
+  border: 3px solid $color-sur;
   float: left;
   border-radius: 100px;
   position: relative;
-  cursor: pointer;
   transition: .1s ease-in-out;
 
   &:hover {
-    // background: $color-neue;
+    border-color: $color-sur-dark;
     opacity: .7;
   }
 }
 
 input[type=checkbox]:checked + label{
-  background: $color-neue;
+  background: $color-sur-dark;
 
   &:hover {
-    background-color: $color-neue;
+    background-color: $color-sur;
   }
 }
 
