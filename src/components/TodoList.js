@@ -37,31 +37,33 @@ class TodoList extends Component {
        )
      })
      return (
-       <div>
-         <div className='margin-y'>
-           <ToggleButton
-             name='ALL'
-             filter='ALL'
-             isActive={this.state.filter==='ALL'}
-             onClick={this.handleClick.bind(this)}
-            />
+      <div>
+        <div className='margin-y'>
+          <ToggleButton
+          name='ALL'
+          filter='ALL'
+          isActive={this.state.filter==='ALL'}
+          onClick={this.handleClick.bind(this)}
+          />
 
-            <ToggleButton
-              name='COMPLETE'
-              filter='COMPLETE'
-              isActive={this.state.filter==='COMPLETE'}
-              onClick={this.handleClick.bind(this)}
-             />
+          <ToggleButton
+          name='COMPLETE'
+          filter='COMPLETE'
+          isActive={this.state.filter==='COMPLETE'}
+          onClick={this.handleClick.bind(this)}
+          />
 
-             <ToggleButton
-               name='INCOMPLETE'
-               filter='INCOMPLETE'
-               isActive={this.state.filter==='INCOMPLETE'}
-               onClick={this.handleClick.bind(this)}
-              />
-          </div>
-         { todos }
-       </div>
+          <ToggleButton
+          name='INCOMPLETE'
+          filter='INCOMPLETE'
+          isActive={this.state.filter==='INCOMPLETE'}
+          onClick={this.handleClick.bind(this)}
+          />
+        </div>
+        <div className='todo-list'>
+          { todos }
+        </div>
+      </div>
      )
   }
 }

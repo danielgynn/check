@@ -54,6 +54,11 @@ button {
 .active {
   background-color: #24828f; }
 
+.todo-list {
+  max-height: 450px;
+  overflow: hidden;
+  overflow-y: scroll; }
+
 .margin-y {
   margin: 1rem auto; }
 
