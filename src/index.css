@@ -39,15 +39,26 @@ input[type=text] {
 
 button {
   cursor: pointer;
-  background-color: #24828f;
-  border-radius: 3px;
+  background-color: #222;
   color: #f3f4f4;
   text-transform: uppercase;
   letter-spacing: .2rem;
   height: 30px;
   border: none;
   padding: .25rem .5rem;
-  margin-right: .5rem; }
+  margin-right: .5rem;
+  border: 1px solid transparent; }
+  button:hover {
+    border-bottom: 1px solid #24828f; }
+
+.active {
+  background-color: #24828f; }
+
+.margin-y {
+  margin: 1rem auto; }
+
+.margin-x {
+  margin: auto 1rem; }
 
 .check-container {
   display: flex;

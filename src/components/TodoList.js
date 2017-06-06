@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Todo from './Todo';
+import ToggleButton from './ToggleButton';
 
 class TodoList extends Component {
   constructor(props) {
@@ -9,8 +10,10 @@ class TodoList extends Component {
     }
   }
 
-  toggleFilter(filter) {
-    this.setState({ filter: filter })
+  handleClick(filter) {
+    this.setState({
+      filter: filter
+    })
   }
 
   render() {
@@ -35,9 +38,28 @@ class TodoList extends Component {
      })
      return (
        <div>
-         <button onClick={ () => this.toggleFilter('ALL') }>SHOW ALL</button>
-         <button onClick={ () => this.toggleFilter('COMPLETE') }>SHOW COMPLETE</button>
-         <button onClick={ () => this.toggleFilter('INCOMPLETE') }>SHOW INCOMPLETE</button>
+         <div className='margin-y'>
+           <ToggleButton
+             name='ALL'
+             filter='ALL'
+             isActive={this.state.filter==='ALL'}
+             onClick={this.handleClick.bind(this)}
+            />
+
+            <ToggleButton
+              name='COMPLETE'
+              filter='COMPLETE'
+              isActive={this.state.filter==='COMPLETE'}
+              onClick={this.handleClick.bind(this)}
+             />
+
+             <ToggleButton
+               name='INCOMPLETE'
+               filter='INCOMPLETE'
+               isActive={this.state.filter==='INCOMPLETE'}
+               onClick={this.handleClick.bind(this)}
+              />
+          </div>
          { todos }
        </div>
      )
