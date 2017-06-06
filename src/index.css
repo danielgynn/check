@@ -71,7 +71,12 @@ button {
   padding: .5rem 0; }
   .check-container p {
     margin: 0; }
+  .check-container .todo-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%; }
   .check-container .check-details {
+    cursor: pointer;
     margin: 0 1rem;
     width: 100%;
     display: flex;
