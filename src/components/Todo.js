@@ -11,6 +11,7 @@ class Todo extends Component {
     };
 
     this.handleCheckClick = this.handleCheckClick.bind(this);
+    this.deleteTodo = this.deleteTodo.bind(this);
   }
 
   handleCheckClick(e) {
@@ -24,6 +25,12 @@ class Todo extends Component {
     });
   }
 
+  deleteTodo(e) {
+    e.preventDefault();
+    let id = this.props.uniqueID;
+    this.props.onTodoDelete(id);
+  }
+
   render() {
     return (
       <div>
@@ -34,6 +41,9 @@ class Todo extends Component {
           </form>
           <div className='check-details'>
             <p>{ this.state.text }</p>
+            <div>
+              <button onClick={ this.deleteTodo }>Delete</button>
+            </div>
           </div>
         </div>
         <hr />

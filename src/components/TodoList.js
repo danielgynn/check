@@ -32,7 +32,8 @@ class TodoList extends Component {
            tag={todo.tag}
            date={todo.date}
            notes={todo.notes}
-           onCheckClick = { this.props.onCheckClick }
+           onCheckClick={ this.props.onCheckClick }
+           onTodoDelete={ this.props.onTodoDelete }
           />
        )
      })
