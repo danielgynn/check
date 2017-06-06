@@ -12,6 +12,22 @@ body {
   margin: 0 auto;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  a {
+    transition: all .3s ease-in-out;
+    color: $color-haus;
+    text-decoration: none;
+
+    &:hover {
+      opacity: .75;
+    }
+  }
+}
+
 h2 {
   font-size: 3rem;
   margin: 1rem auto;
@@ -71,7 +87,7 @@ button {
 
 .notes {
   font-size: .85rem;
-  margin: 0 58px;
+  margin-left: 58px;
 }
 
 .margin-y {

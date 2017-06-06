@@ -78,7 +78,7 @@ class Todo extends Component {
           </div>
         </div>
         { (this.state.notesDisplay) ? (
-          (this.props.notes) ? (<div className='notes'><p>{this.props.notes}</p></div>) : (<form className='notes' onSubmit={this.submitNotes}><input type='text' value={this.state.notes} onChange={this.handleNotesUpdate} /></form>)
+          (this.props.notes) ? (<div className='notes'><p>{this.props.notes}</p></div>) : (<form className='notes' onSubmit={this.submitNotes}><input type='text' placeholder='Add notes...' value={this.state.notes} onChange={this.handleNotesUpdate} /></form>)
         ) : null }
         <hr />
       </div>
