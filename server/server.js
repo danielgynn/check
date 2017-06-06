@@ -55,6 +55,17 @@ router.route('/todos')
     });
   });
 
+router.route('/todos/:todo_id')
+  .delete(function(req, res) {
+    Todo.remove({ _id: req.params.todo_id}, function(err, todo) {
+      if (err) {
+        res.send(err);
+      } else {
+        res.json({ message: 'Todo has been deleted' });
+      }
+    })
+  });
+
 router.route('/todosCheck/:todo_id')
   .put(function(req, res) {
     Todo.findById(req.params.todo_id, function(err, todo) {
@@ -72,7 +83,7 @@ router.route('/todosCheck/:todo_id')
         });
       }
     });
-  })
+  });
 
 app.use('/api', router);
 
