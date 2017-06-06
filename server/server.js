@@ -45,6 +45,7 @@ router.route('/todos')
     var todo = new Todo();
     todo.text = req.body.text;
     todo.complete = false;
+    todo.created_at = new Date();
 
     todo.save(function(err) {
       if (err) {
