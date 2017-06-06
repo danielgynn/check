@@ -6,7 +6,7 @@ class TodoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filter: 'ALL'
+      filter: 'INCOMPLETE'
     }
   }
 
@@ -41,24 +41,24 @@ class TodoList extends Component {
       <div>
         <div className='margin-y'>
           <ToggleButton
-          name='ALL'
-          filter='ALL'
-          isActive={this.state.filter==='ALL'}
-          onClick={this.handleClick.bind(this)}
+            name='INCOMPLETE'
+            filter='INCOMPLETE'
+            isActive={this.state.filter==='INCOMPLETE'}
+            onClick={this.handleClick.bind(this)}
           />
 
           <ToggleButton
-          name='COMPLETE'
-          filter='COMPLETE'
-          isActive={this.state.filter==='COMPLETE'}
-          onClick={this.handleClick.bind(this)}
+            name='COMPLETE'
+            filter='COMPLETE'
+            isActive={this.state.filter==='COMPLETE'}
+            onClick={this.handleClick.bind(this)}
           />
 
           <ToggleButton
-          name='INCOMPLETE'
-          filter='INCOMPLETE'
-          isActive={this.state.filter==='INCOMPLETE'}
-          onClick={this.handleClick.bind(this)}
+            name='ALL'
+            filter='ALL'
+            isActive={this.state.filter==='ALL'}
+            onClick={this.handleClick.bind(this)}
           />
         </div>
         <div className='todo-list'>
