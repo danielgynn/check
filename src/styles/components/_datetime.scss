@@ -1,0 +1,18 @@
+.rdt {
+  color: $color-night;
+}
+
+.rdtToday {
+  background-color: $color-sur-dark;
+  color: $color-haus;
+}
+
+.rdtDay {
+  cursor: pointer;
+  text-align: center;
+
+  &:hover {
+    background-color: $color-night;
+    color: $color-haus;
+  }
+}

@@ -143,3 +143,26 @@ input[type=checkbox]:checked + label {
 
 label:before {
   content: ''; }
+
+.rdt {
+  color: #222; }
+
+.rdtToday {
+  background-color: #24828f;
+  color: #f3f4f4; }
+
+.rdtDay {
+  cursor: pointer;
+  text-align: center; }
+  .rdtDay:hover {
+    background-color: #222;
+    color: #f3f4f4; }
+
+.ReactModal__Content--after-open {
+  margin: 7.5rem auto;
+  width: 50vh;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f4 !important; }

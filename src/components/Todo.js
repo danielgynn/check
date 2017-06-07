@@ -3,6 +3,7 @@ import NoteIcon from 'react-icons/lib/fa/sticky-note';
 import CalendarIcon from 'react-icons/lib/fa/calendar-check-o';
 import Datetime from 'react-datetime';
 import moment from 'moment';
+import Modal from 'react-modal';
 
 class Todo extends Component {
   constructor(props) {
@@ -74,7 +75,10 @@ class Todo extends Component {
     let deadline = (dates.date) ? dates.date : null;
     let todo = { deadline: deadline };
     this.props.onDateSubmit(id, todo);
-    this.setState({ deadline: deadline });
+    this.setState({
+      deadline: deadline,
+      deadlineDisplay: false
+    });
   }
 
   render() {
@@ -96,11 +100,18 @@ class Todo extends Component {
             </div>
           </div>
         </div>
-        { (this.state.notesDisplay) ? (
-          (this.props.notes) ? (<div className='notes'><p>Due: {this.props.deadline}</p><p>{this.props.notes}</p></div>) : (<form className='notes' onSubmit={this.submitNotes}><input type='text' placeholder='Add notes...' value={this.state.notes} onChange={this.handleNotesUpdate} /></form>)
-        ) : null }
+        <div className='notes'>
+          { (this.state.notesDisplay) ? <p>Due: {this.props.deadline}</p> : null }
+          { (this.state.notesDisplay) ? ((this.props.notes) ? (<p>{this.props.notes}</p>) : (<form onSubmit={this.submitNotes}><input type='text' placeholder='Add notes...' value={this.state.notes} onChange={this.handleNotesUpdate} /></form>)) : null }
+        </div>
 
-        { (this.state.deadlineDisplay) ? ( <Datetime input={false} dateFormat="DD-MM-YYYY" value={moment(this.state.deadline).format('LL')} onChange={ this.handleDeadlineChange }/> ) : null }
+        <Modal
+          isOpen={this.state.deadlineDisplay}
+          onRequestClose={this.toggleDeadline}
+          contentLabel="Modal"
+        >
+          <Datetime input={false} dateFormat="DD-MM-YYYY" defaultValue={moment.currentDate} value={moment(this.state.deadline).format('LL')} onChange={ this.handleDeadlineChange }/>
+        </Modal>
         <hr />
       </div>
     );

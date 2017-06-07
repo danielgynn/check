@@ -1,0 +1,13 @@
+.ReactModal__Content--after-open {
+  margin: 7.5rem auto;
+  width: 50vh;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-haus !important;
+}
+
+.ReactModal__Overlay--after-open {
+  // background-color: lighten($color-night, 10%) !important;
+}
