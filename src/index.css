@@ -74,11 +74,18 @@ button {
   font-size: .85rem;
   margin-left: 58px; }
 
+.flex-inline {
+  display: flex;
+  justify-content: space-between; }
+  @media (max-width: 599px) {
+    .flex-inline {
+      flex-direction: column; } }
+
 .margin-y {
-  margin: 1rem auto; }
+  margin: 1rem 0; }
 
 .margin-x {
-  margin: auto 1rem; }
+  margin: 0 1rem; }
 
 .check-container {
   display: flex;

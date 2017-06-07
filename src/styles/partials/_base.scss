@@ -90,10 +90,19 @@ button {
   margin-left: 58px;
 }
 
+.flex-inline {
+  display: flex;
+  justify-content: space-between;
+
+  @include for-phone {
+    flex-direction: column;
+  }
+}
+
 .margin-y {
-  margin: 1rem auto;
+  margin: 1rem 0;
 }
 
 .margin-x {
-  margin: auto 1rem;
+  margin: 0 1rem;
 }
