@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NoteIcon from 'react-icons/lib/fa/sticky-note';
 import CalendarIcon from 'react-icons/lib/fa/calendar-check-o';
 import Datetime from 'react-datetime';
+import moment from 'moment';
 
 class Todo extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class Todo extends Component {
     this.state = {
       text: this.props.text,
       tag: this.props.tag,
-      deadline: this.props.deadline,
+      deadline: null,
       deadlineDisplay: false,
       notesDisplay: false,
       notes: ''
@@ -21,6 +22,7 @@ class Todo extends Component {
     this.handleNotesUpdate = this.handleNotesUpdate.bind(this);
     this.submitNotes = this.submitNotes.bind(this);
     this.toggleDeadline = this.toggleDeadline.bind(this);
+    this.handleDeadlineChange = this.handleDeadlineChange.bind(this);
   }
 
   handleCheckClick(e) {
@@ -53,12 +55,9 @@ class Todo extends Component {
 
   submitNotes(e) {
     e.preventDefault();
-    console.log('notes');
     let id = this.props.uniqueID;
     let notes = (this.state.notes) ? this.state.notes : null;
-    console.log(notes);
     let todo = { notes: notes };
-    console.log(todo);
     this.props.onNotesSubmit(id, todo);
     this.setState({ notes: notes });
   }
@@ -67,6 +66,15 @@ class Todo extends Component {
     e.preventDefault();
     let display = (this.state.deadlineDisplay) ? false : true;
     this.setState({ deadlineDisplay: display });
+  }
+
+  handleDeadlineChange(date) {
+    const dates = {date};
+    let id = this.props.uniqueID;
+    let deadline = (dates.date) ? dates.date : null;
+    let todo = { deadline: deadline };
+    this.props.onDateSubmit(id, todo);
+    this.setState({ deadline: deadline });
   }
 
   render() {
@@ -79,7 +87,7 @@ class Todo extends Component {
           </form>
           <div className='todo-details' onClick={ this.toggleNotesDisplay }>
             <div className='check-details'>
-              <p>{ this.state.text } { (this.props.deadline) ? <CalendarIcon /> : null } { (this.props.notes) ? <NoteIcon /> : null }</p>
+              <p>{ this.state.text } { (this.props.deadline) ? (<CalendarIcon />) : null } { (this.props.notes) ? <NoteIcon /> : null }</p>
               <div>
                 <button onClick={ this.toggleDeadline }>Add Deadline</button>
                 { (!this.props.notes) ? ((this.state.notesDisplay) ? <button onClick={ this.toggleNotesDisplay }>Cancel</button> : <button onClick={ this.toggleNotesDisplay }>Add Notes</button>) : null }
@@ -89,10 +97,10 @@ class Todo extends Component {
           </div>
         </div>
         { (this.state.notesDisplay) ? (
-          (this.props.notes) ? (<div className='notes'><p>{this.props.notes}</p></div>) : (<form className='notes' onSubmit={this.submitNotes}><input type='text' placeholder='Add notes...' value={this.state.notes} onChange={this.handleNotesUpdate} /></form>)
+          (this.props.notes) ? (<div className='notes'><p>Due: {this.props.deadline}</p><p>{this.props.notes}</p></div>) : (<form className='notes' onSubmit={this.submitNotes}><input type='text' placeholder='Add notes...' value={this.state.notes} onChange={this.handleNotesUpdate} /></form>)
         ) : null }
 
-        { (this.state.deadlineDisplay) ? ( <Datetime /> ) : null }
+        { (this.state.deadlineDisplay) ? ( <Datetime input={false} dateFormat="DD-MM-YYYY" value={moment(this.state.deadline).format('LL')} onChange={ this.handleDeadlineChange }/> ) : null }
         <hr />
       </div>
     );

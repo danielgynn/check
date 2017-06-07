@@ -86,6 +86,25 @@ router.route('/todosNotes/:todo_id')
     });
   });
 
+router.route('/todosDeadline/:todo_id')
+  .put(function(req, res) {
+    Todo.findById(req.params.todo_id, function(err, todo) {
+      if (err) {
+        res.send(err);
+      } else {
+        todo.deadline = req.body.deadline;
+
+        todo.save(function(err) {
+          if (err) {
+            res.send(err);
+          } else {
+            res.json({ message: 'Todo has been updated!' });
+          }
+        });
+      }
+    });
+  });
+
 router.route('/todosCheck/:todo_id')
   .put(function(req, res) {
     Todo.findById(req.params.todo_id, function(err, todo) {

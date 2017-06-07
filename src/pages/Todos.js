@@ -17,6 +17,7 @@ class Todos extends Component {
     this.handleCheckClick = this.handleCheckClick.bind(this);
     this.handleTodoDelete = this.handleTodoDelete.bind(this);
     this.handleNotesSubmit = this.handleNotesSubmit.bind(this);
+    this.handleDeadlineChange = this.handleDeadlineChange.bind(this);
   }
 
   loadTodosFromServer() {
@@ -63,6 +64,13 @@ class Todos extends Component {
       })
   }
 
+  handleDeadlineChange(id, todo) {
+    axios.put(`${this.state.url}Deadline/${id}`, todo)
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
   componentDidMount() {
     this.loadTodosFromServer();
     setInterval(this.loadTodosFromServer, this.state.pollInterval);
@@ -76,6 +84,7 @@ class Todos extends Component {
           onCheckClick={ this.handleCheckClick }
           onTodoDelete={ this.handleTodoDelete }
           onNotesSubmit={ this.handleNotesSubmit }
+          onDateSubmit={ this.handleDeadlineChange }
           data={ this.state.todoData }
         />
       </div>

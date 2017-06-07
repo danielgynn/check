@@ -36,10 +36,12 @@ class TodoList extends Component {
            tag={todo.tag}
            date={todo.date}
            notes={todo.notes}
+           deadline={todo.deadline}
            createdAt={ todo.created_at }
            onCheckClick={ this.props.onCheckClick }
            onTodoDelete={ this.props.onTodoDelete }
            onNotesSubmit={ this.props.onNotesSubmit }
+           onDateSubmit={ this.props.onDateSubmit }
           />
        )
      })
