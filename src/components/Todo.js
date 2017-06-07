@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import FANote from 'react-icons/lib/fa/sticky-note';
+import NoteIcon from 'react-icons/lib/fa/sticky-note';
+import CalendarIcon from 'react-icons/lib/fa/calendar-check-o';
+import Datetime from 'react-datetime';
 
 class Todo extends Component {
   constructor(props) {
@@ -8,6 +10,7 @@ class Todo extends Component {
       text: this.props.text,
       tag: this.props.tag,
       deadline: this.props.deadline,
+      deadlineDisplay: false,
       notesDisplay: false,
       notes: ''
     };
@@ -17,6 +20,7 @@ class Todo extends Component {
     this.toggleNotesDisplay = this.toggleNotesDisplay.bind(this);
     this.handleNotesUpdate = this.handleNotesUpdate.bind(this);
     this.submitNotes = this.submitNotes.bind(this);
+    this.toggleDeadline = this.toggleDeadline.bind(this);
   }
 
   handleCheckClick(e) {
@@ -59,6 +63,12 @@ class Todo extends Component {
     this.setState({ notes: notes });
   }
 
+  toggleDeadline(e) {
+    e.preventDefault();
+    let display = (this.state.deadlineDisplay) ? false : true;
+    this.setState({ deadlineDisplay: display });
+  }
+
   render() {
     return (
       <div>
@@ -69,8 +79,9 @@ class Todo extends Component {
           </form>
           <div className='todo-details' onClick={ this.toggleNotesDisplay }>
             <div className='check-details'>
-              <p>{ this.state.text } { (this.props.notes) ? <FANote /> : null }</p>
+              <p>{ this.state.text } { (this.props.deadline) ? <CalendarIcon /> : null } { (this.props.notes) ? <NoteIcon /> : null }</p>
               <div>
+                <button onClick={ this.toggleDeadline }>Add Deadline</button>
                 { (!this.props.notes) ? ((this.state.notesDisplay) ? <button onClick={ this.toggleNotesDisplay }>Cancel</button> : <button onClick={ this.toggleNotesDisplay }>Add Notes</button>) : null }
                 <button onClick={ this.deleteTodo }>Delete</button>
               </div>
@@ -80,6 +91,8 @@ class Todo extends Component {
         { (this.state.notesDisplay) ? (
           (this.props.notes) ? (<div className='notes'><p>{this.props.notes}</p></div>) : (<form className='notes' onSubmit={this.submitNotes}><input type='text' placeholder='Add notes...' value={this.state.notes} onChange={this.handleNotesUpdate} /></form>)
         ) : null }
+
+        { (this.state.deadlineDisplay) ? ( <Datetime /> ) : null }
         <hr />
       </div>
     );

@@ -7,10 +7,12 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "foreman": "^2.0.0",
+    "moment": "^2.18.1",
     "mongoose": "^4.10.4",
     "node-sass-chokidar": "^0.0.2",
     "path": "^0.12.7",
     "react": "^15.5.4",
+    "react-datetime": "^2.8.10",
     "react-dom": "^15.5.4",
     "react-icons": "^2.2.5",
     "react-router-dom": "^4.1.1"

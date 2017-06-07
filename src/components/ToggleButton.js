@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 class ToggleButton extends Component {
-  handleClick() {
+  handleFilterClick() {
     this.props.onClick(this.props.filter);
   }
 
   render() {
     return (
-      <button className={this.props.isActive ? 'active' : 'inactive'} onClick={this.handleClick.bind(this)} >
+      <button className={this.props.isActive ? 'active' : 'inactive'} onClick={this.handleFilterClick.bind(this)} >
         <span>{this.props.name}</span>
       </button>
     )

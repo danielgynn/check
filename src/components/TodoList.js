@@ -12,7 +12,7 @@ class TodoList extends Component {
     }
   }
 
-  handleClick(filter) {
+  handleFilterClick(filter) {
     this.setState({ filter: filter });
   }
 
@@ -51,21 +51,21 @@ class TodoList extends Component {
               name='INCOMPLETE'
               filter='INCOMPLETE'
               isActive={this.state.filter==='INCOMPLETE'}
-              onClick={this.handleClick.bind(this)}
+              onClick={this.handleFilterClick.bind(this)}
             />
 
             <ToggleButton
               name='COMPLETE'
               filter='COMPLETE'
               isActive={this.state.filter==='COMPLETE'}
-              onClick={this.handleClick.bind(this)}
+              onClick={this.handleFilterClick.bind(this)}
             />
 
             <ToggleButton
               name='ALL'
               filter='ALL'
               isActive={this.state.filter==='ALL'}
-              onClick={this.handleClick.bind(this)}
+              onClick={this.handleFilterClick.bind(this)}
             />
           </div>
           <div className='margin-y'>
