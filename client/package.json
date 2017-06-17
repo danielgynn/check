@@ -1,0 +1,29 @@
+{
+  "name": "check-client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.16.2",
+    "foreman": "^2.0.0",
+    "moment": "^2.18.1",
+    "node-sass-chokidar": "^0.0.2",
+    "react": "^15.5.4",
+    "react-datetime": "^2.8.10",
+    "react-dom": "^15.5.4",
+    "react-icons": "^2.2.5",
+    "react-modal": "^1.7.7",
+    "react-router-dom": "^4.1.1"
+  },
+  "proxy": "http://localhost:3001",
+  "devDependencies": {
+    "react-scripts": "1.0.7"
+  },
+  "scripts": {
+    "build-css": "node-sass-chokidar --include-path ./src/styles --include-path ./node_modules src/styles -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src/styles --include-path ./node_modules src/styles -o src/ --watch --recursive",
+    "start": "react-scripts start && yarn run watch-css",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

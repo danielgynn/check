@@ -14,6 +14,7 @@ var port = process.env.API_PORT || 3001;
 
 mongoose.connect('mongodb://danielgynn:secret@ds163721.mlab.com:63721/check');
 
+app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

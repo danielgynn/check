@@ -1,35 +1,16 @@
 {
-  "name": "check",
+  "name": "check-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.16.2",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "foreman": "^2.0.0",
-    "moment": "^2.18.1",
     "mongoose": "^4.10.4",
-    "node-sass-chokidar": "^0.0.2",
-    "path": "^0.12.7",
-    "react": "^15.5.4",
-    "react-datetime": "^2.8.10",
-    "react-dom": "^15.5.4",
-    "react-icons": "^2.2.5",
-    "react-modal": "^1.7.7",
-    "react-router-dom": "^4.1.1"
-  },
-  "proxy": "http://localhost:3001",
-  "devDependencies": {
-    "react-scripts": "1.0.7"
+    "path": "^0.12.7"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar --include-path ./src/styles --include-path ./node_modules src/styles -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src/styles --include-path ./node_modules src/styles -o src/ --watch --recursive",
-    "start": "react-scripts start",
-    "heroku-postbuild": "yarn --production=false && yarn run build",
-    "startDev": "nf start -p 3000",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "nodemon server/server.js",
+    "heroku-postbuild": "yarn --production=false && yarn run build"
   }
 }
