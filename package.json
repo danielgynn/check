@@ -21,11 +21,11 @@
   "devDependencies": {
     "react-scripts": "1.0.7"
   },
-  "proxy": "http://localhost:3001",
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./src/styles --include-path ./node_modules src/styles -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src/styles --include-path ./node_modules src/styles -o src/ --watch --recursive",
     "start": "react-scripts start",
+    "heroku-postbuild": "yarn --production=false && yarn run build",
     "startDev": "nf start -p 3000",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
