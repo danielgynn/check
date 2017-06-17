@@ -110,7 +110,7 @@ class Todo extends Component {
           onRequestClose={this.toggleDeadline}
           contentLabel="Modal"
         >
-          <Datetime input={false} dateFormat="DD-MM-YYYY" defaultValue={moment.currentDate} value={moment(this.state.deadline).format('LL')} onChange={ this.handleDeadlineChange }/>
+          <Datetime input={false} locale="en" dateFormat="DD-MM-YYYY" defaultValue={moment.currentDate} value={moment(this.state.deadline).format('LL')} onChange={ this.handleDeadlineChange }/>
         </Modal>
         <hr />
       </div>

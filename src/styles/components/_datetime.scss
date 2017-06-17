@@ -3,6 +3,11 @@
 }
 
 .rdtToday {
+  background-color: $color-sur;
+  color: $color-haus;
+}
+
+.rdtActive {
   background-color: $color-sur-dark;
   color: $color-haus;
 }

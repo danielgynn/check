@@ -25,7 +25,7 @@ class TodoList extends Component {
       .filter(todo => {
         return (this.state.filter === 'COMPLETE') ? todo.complete : ((this.state.filter === 'INCOMPLETE') ? !todo.complete : todo);
       })
-      .sort(todo => { return (this.state.order === 'OLDEST') ? todo.createdAt : ((this.state.order === 'LATEST') ? !todo.createdAt : null) })
+      .sort(todo => { return (this.state.order === 'OLDEST') ? todo.createdAt : ((this.state.order === 'LATEST') ? !todo.createdAt : ((this.state.order === 'DEADLINE') ? !todo.deadline : null)) })
       .map(todo => {
        return (
          <Todo
@@ -78,10 +78,17 @@ class TodoList extends Component {
               onClick={this.handleOrderClick.bind(this)}
             />
 
-          <OrderButton
+            <OrderButton
               name='OLDEST'
               order='OLDEST'
               isActive={this.state.order==='OLDEST'}
+              onClick={this.handleOrderClick.bind(this)}
+            />
+
+            <OrderButton
+              name='DEADLINE'
+              order='DEADLINE'
+              isActive={this.state.order==='DEADLINE'}
               onClick={this.handleOrderClick.bind(this)}
             />
           </div>

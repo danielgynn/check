@@ -148,6 +148,10 @@ label:before {
   color: #222; }
 
 .rdtToday {
+  background-color: #96dbe4;
+  color: #f3f4f4; }
+
+.rdtActive {
   background-color: #24828f;
   color: #f3f4f4; }
 
@@ -160,8 +164,8 @@ label:before {
 
 .ReactModal__Content--after-open {
   margin: 7.5rem auto;
-  width: 50vh;
-  height: 50vh;
+  max-width: 50vh;
+  max-height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
