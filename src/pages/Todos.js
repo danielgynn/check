@@ -8,7 +8,7 @@ class Todos extends Component {
     super(props);
     this.state = {
       todoData: [],
-      url: 'http://localhost:3001/api/todos',
+      url: '/api/todos',
       pollInterval: 2000
     };
 
